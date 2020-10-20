@@ -1,0 +1,85 @@
+<!DOCTYPE html>  
+<html lang="en">  
+    <head>  
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BOTONES</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+         
+    </head>  
+    
+    <body style = "text-align: center;">  
+
+        <p>Generador De Botones</p>
+        <br>
+        <p>Ecsribe El Numero De Botones Que Quiere Generar: </p> 
+        <br>
+
+        <div class="form-row align-items-center justify-content-center">
+            <div class="form-group col-md-4">
+                <input  type="text" value="10" min="1" max="30" class="form-group" placeholder="Cantidad a generar" id="myInput">
+                <button onclick ="Geeks()">Generar    Botones</button><br><br>
+            </div>
+        </div> 
+
+        <div class="form-row align-items-center justify-content-center">
+            <div class="form-group col-md-4">
+                <div id = "GFG">   
+            </div>
+        </div>
+
+
+
+        <script>  
+            var i = 1;
+            var c = 0;
+
+            function Geeks() { 
+                var clases = ["btn btn-primary"];
+                var inputVal = document.getElementById("myInput").value;
+                for (var i = 1; i <= inputVal; i++) {
+                    var myDiv = document.getElementById('GFG');
+
+
+                    var div = document.createElement('div'); 
+                    div.id = 'div'+i;
+
+                    var input = document.createElement('input');
+                    input.setAttribute("class", "custom-input custom-input-sm-1 mb-3");
+                    input.type = "text";
+                    input.className = "css-class-name";
+                    input.setAttribute("placeholder", "Texto " +i);
+                    input.id = 'input'+i;
+
+
+                    var button = document.createElement('BUTTON'); 
+                    button.setAttribute("value", "  ");
+                    button.setAttribute("placeholder", "texto" +i);
+                    button.setAttribute("class", "button" + clases[c]);
+                    var text = document.createTextNode("Boton no " + i);
+                    button.id = 'boton' +i ;
+
+                    button.addEventListener("click", (
+                        function(textoId, botonId){
+                            textoId = input.id;                               botonId = button.id; 
+                            return function(){
+                                alert(document.getElementById(textoId).value); 
+                                console.log(document.getElementById(textoId).value); 
+                            }
+                        }
+                    )("texto", "boton"+i),false);
+                        
+                    button.appendChild(text);  
+                    div.appendChild(input);  
+                    div.appendChild(button); 
+
+                    myDiv.appendChild(div);  
+                    myDiv.appendChild( document.createElement("br") ); 
+
+                }
+            }
+        </script>  
+   
+    </body>  
+
+</html>                     
